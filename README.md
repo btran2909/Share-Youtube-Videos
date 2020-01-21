@@ -1,4 +1,5 @@
 # Server Rest-API (the first start server, please)
+cd ~/rest-api
 Run `node index`
 
 # ShareYoutubeVideos
