@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Share a Youtube movie</h2>
+<div mat-dialog-content>
+    <label for="youtube-url">Youtube URL:</label>
+    <input placeholder="url" class="form-control" [(ngModel)]="data.animal" />
+    <label for="youtube-url">Description:</label>
+    <textarea  maxlength="256" class="form-control" placeholder="Description" [(ngModel)]="data.description"></textarea>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Share</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Share</button>
+</div>

@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default navbar-expand-lg navbar-light">
+    <div class="navbar-header d-flex col">
+        <a class="navbar-brand" routerLink="">Funny<b>Movies</b></a>
+        <button type="button" data-target="#navbarCollapse" data-toggle="collapse"
+            class="navbar-toggle navbar-toggler ml-auto">
+            <span class="navbar-toggler-icon"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+        <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="!isLogged">
+            <li class="nav-item">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <input type="text" placeholder="email" name="email" formControlName="email"
+                        [ngClass]="{ 'has-error': invalidPassword() }" />
+                    <input type="text" placeholder="*****" name="password" formControlName="password"
+                        [ngClass]="{ 'has-error': invalidEmail() }" />
+                    <button type="submit">Login</button>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a routerLink="register" class="nav-link">Register</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="isLogged">
+            <li class="nav-item">
+                <a class="nav-link">Wellcome <b>{{userName}}</b></a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="share" class="nav-link share-video" mat-raised-button (click)="openDialog()">Share a movie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

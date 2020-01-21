@@ -1,0 +1,17 @@
+<!-- Page Content -->
+<div class="container" *ngIf="videoModel">
+    <div class="row mb-4 text-lg-left" *ngFor="let video of videoModel">
+        <div class="col-lg-3 col-md-4">
+            <iframe [src]="videoURL(video.url)"></iframe>
+        </div>
+        <div class="col-lg-9 col-md-8">
+            <h3 class="text-capitalize text-danger">{{video.title}}</h3>
+            <p><b>Shared by:</b> {{video.user_email}}</p>
+            <div class="description">
+                <b>Description:</b>
+                <p>{{video.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->

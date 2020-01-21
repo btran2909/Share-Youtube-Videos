@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>BTRAN - Dev Test Project</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            //Answer 1
+            console.log('Output: ', sortArr(["ax", "mof", "4", "63", "42", "3", "10", "[", "23", "adidas", "ba", ")", "ABC"]));
+            function sortArr(arr) {                
+                const rgText = /^[A-Za-z]+$/;
+                const reNumber = /^[0-9]+$/;
+                const reSpecial = /^[\[\]!@#$%^&*(),.?":{}|<>]+$/;
+                //Filter array
+                const arrText = splitArr(arr, rgText).sort();
+                const arrNumber = splitArr(arr, reNumber).sort(function(a,b){return a - b});
+                const arrSpecial = splitArr(arr, reSpecial).sort();
+                return arrNumber.concat(arrText, arrSpecial);
+            }
+            function splitArr(arr, rs){
+                return arr.filter(e => e.match(rs));
+            }
+        </script>
+    </body>
+</html>
