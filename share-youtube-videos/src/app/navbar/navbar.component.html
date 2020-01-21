@@ -16,7 +16,7 @@
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <input type="text" placeholder="email" name="email" formControlName="email"
                         [ngClass]="{ 'has-error': invalidPassword() }" />
-                    <input type="text" placeholder="*****" name="password" formControlName="password"
+                    <input type="password" placeholder="*****" name="password" formControlName="password"
                         [ngClass]="{ 'has-error': invalidEmail() }" />
                     <button type="submit">Login</button>
                 </form>
